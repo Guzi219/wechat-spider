@@ -59,8 +59,8 @@ class SeleniumDownloaderBackend(object):
 
     def get_display(self):
         """ 获取操作系统桌面窗口 """
-        if platform.system() != 'Darwin':
-            # 不是mac系统, 启动窗口
+        if platform.system() != 'Darwin' and platform.system() != 'Windows':
+            # 不是mac/win系统, 启动窗口
             display = Display(visible=0, size=(1024, 768))
             display.start()
         else:
